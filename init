@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+if [ ! -d "sources/poky" ]; then
+   echo "Fetching poky sources ..."
+   git clone git://git.yoctoproject.org/poky -b hardknott sources/poky
+fi
+
+if [ ! -d "sources/meta-openembedded" ]; then
+   echo "Fetching openembedded sources ..."
+   git clone git://git.openembedded.org/meta-openembedded -b hardknott sources/meta-openembedded
+fi
+
+if [ ! -d "sources/meta-raspberrypi" ]; then
+   echo "Fetching raspberrypi sources ..."
+   git clone git://git.yoctoproject.org/meta-raspberrypi -b hardknott sources/meta-raspberrypi
+fi
