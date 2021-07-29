@@ -24,4 +24,7 @@ export TEMPLATECONF=`pwd`/sources/meta-aurora/build/conf
 echo -e "#######################################"
 echo -e "# To initialize the environment, run: #"
 echo -e "#    . sources/poky/oe-init-build-env #"
+echo -e "#                                     #"
+echo -e "# To build the image, run:            #"
+echo -e "#    bitbake Aurora                   #"
 echo -e "#######################################"
