@@ -1,0 +1,30 @@
+From 88a02b160b8e4d788e6c4c49f7ac5fad46630e46 Mon Sep 17 00:00:00 2001
+From: Nicolae Natea <nicu@natea.ro>
+Date: Thu, 29 Jul 2021 21:28:57 +0300
+Subject: [PATCH] Set static ip on wired connection
+
+Signed-off-by: Nicolae Natea <nicu@natea.ro>
+---
+ interfaces | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/interfaces b/interfaces
+index 0acf4cf..67656d0 100644
+--- a/interfaces
++++ b/interfaces
+@@ -15,7 +15,11 @@ iface atml0 inet dhcp
+ 
+ # Wired or wireless interfaces
+ auto eth0
+-iface eth0 inet dhcp
++iface eth0 inet static
++	address 192.168.10.2
++	netmask 255.255.255.0
++	network 192.168.10.0
++	gateway 192.168.10.1
+ iface eth1 inet dhcp
+ 
+ # Ethernet/RNDIS gadget (g_ether)
+-- 
+2.20.1
+
