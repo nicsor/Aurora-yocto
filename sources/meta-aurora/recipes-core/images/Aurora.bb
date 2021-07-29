@@ -8,6 +8,7 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     kea \
     nano \
+    sarpe \
     "
 
 inherit core-image
