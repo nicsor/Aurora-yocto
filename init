@@ -16,3 +16,12 @@ if [ ! -d "sources/meta-raspberrypi" ]; then
    echo "Fetching raspberrypi sources ..."
    git clone git://git.yoctoproject.org/meta-raspberrypi -b hardknott sources/meta-raspberrypi
 fi
+
+# We'd like to have our custom local conf
+export TEMPLATECONF=`pwd`/sources/meta-aurora/build/conf
+. sources/poky/oe-init-build-env
+
+echo -e "#######################################"
+echo -e "# To initialize the environment, run: #"
+echo -e "#    . sources/poky/oe-init-build-env #"
+echo -e "#######################################"
