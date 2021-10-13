@@ -11,4 +11,4 @@ IMAGE_INSTALL = "\
     sarpe \
     "
 
-inherit core-image
+inherit core-image 
