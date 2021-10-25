@@ -1,6 +1,7 @@
 SUMMARY = "Custom image for Aurora led cube"
 
-IMAGE_FEATURES += "splash ssh-server-openssh"
+IMAGE_FEATURES += "splash ssh-server-openssh x11-base"
+DISTRO_FEATURES_append = " x11"
 
 IMAGE_INSTALL = "\
     packagegroup-core-boot \
@@ -9,6 +10,8 @@ IMAGE_INSTALL = "\
     kea \
     nano \
     sarpe \
+    cubegui \
+    gtk+3 \
     "
 
 inherit core-image 
