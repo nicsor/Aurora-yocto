@@ -1,0 +1,51 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          aurora
+# Required-Start:    $local_fs $remote_fs
+# Required-Stop:     $local_fs $remote_fs
+# Default-Start:     5
+# Default-Stop:      0 1 2 3 6
+# Short-Description: Aurora GUI App
+# Description:       Init script for the Aurora GUI App
+### END INIT INFO
+set -e
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/bin/git_apps_Gui
+
+case "$1" in
+  start)
+	echo "Starting Aurora GUI App" "aurora"
+        set +e
+        start-stop-daemon --start -b --exec $DAEMON \
+                --name aurora  > /tmp/bootservice.log 2>&1
+	echo "Started Aurora GUI App" "aurora"
+        set -e
+  ;;
+  stop)
+        echo "Stopping Aurora GUI App" "aurora"
+        set +e
+        start-stop-daemon --stop --name aurora
+        set -e
+  ;;
+  reload)
+        echo "Scheduling reload of Aurora GUI App configuration" "aurora"
+        set +e
+        start-stop-daemon --stop --signal USR1 --quiet --pidfile \
+                /var/run/aurora.pid --name aurora
+        set -e
+  ;;
+  status)
+        status_of_proc -p "$PIDFILE" "$DAEMON" aurora && exit 0 || exit $?
+  ;;
+  restart|force-reload)
+        $0 stop
+        $0 start
+  ;;
+  *)
+        echo "Usage: /etc/init.d/aurora {start|stop|restart|reload|force-reload|status}"
+        exit 1
+  ;;
+esac
+
+exit 0

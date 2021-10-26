@@ -1,0 +1,10 @@
+[Unit]
+Description=Aurora GUI App
+After=systemd-user-sessions.service
+
+[Service]
+ExecStart=%sbindir%/aurora
+StandardOutput=syslog
+
+[Install]
+Alias=display-manager.service
