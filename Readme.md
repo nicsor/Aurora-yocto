@@ -18,10 +18,9 @@
 ## Build for QEMU(x86_64)
 Change the `MACHINE` variable to `qemux86-64` in `build/conf/local.conf` \
 You might need to comment all the contents in `sources/meta-aurora/recipes-core/init-ifupdown/init-ifupdown_1.0.bbappend` \
-Run `. sources/poky/oe-init-build-env`
-`bitbake Aurora` \
+Run `sources/poky/oe-init-build-env` `bitbake Aurora`
 
-If you encounter any error at running `do_package_write_rpm` you can set the `PACKAGE_CLASSES` variable in `local.conf` to `package_deb`
+If you encounter any error at running the task `do_package_write_rpm` you can set the `PACKAGE_CLASSES` variable in `local.conf` to `package_deb`
 
 
 ## Flash
