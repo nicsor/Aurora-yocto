@@ -1,5 +1,5 @@
 DESCRiPTION = "Cube gui"
-LICENSE = " "
+LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = " "
 SRCREV = "6d3b7ad09fbcbd83b13c432f43e63861ce189436"
 SRC_URI = "git://git@github.com:/nicsor/Aurora-CubeApp.git;protocol=ssh;branch=vlad"
