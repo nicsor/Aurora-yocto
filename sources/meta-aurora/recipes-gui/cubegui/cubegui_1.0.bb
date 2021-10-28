@@ -1,7 +1,7 @@
 DESCRiPTION = "Cube gui"
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = " "
-SRCREV = "6d3b7ad09fbcbd83b13c432f43e63861ce189436"
+SRCREV = "9c16474dba4c1b29ac09014cb173d8ddc9bd4af9"
 SRC_URI = "git://git@github.com:/nicsor/Aurora-CubeApp.git;protocol=ssh;branch=vlad"
 
 DEPENDS += "boost"
@@ -12,32 +12,11 @@ S = "${WORKDIR}/git"
 
 OE_CMAKE_GENERATOR = "Unix Makefiles"
 EXTRA_OECMAKE = "-DENABLE_TESTING=OFF"
-inherit pkgconfig cmake update-rc.d systemd
+inherit pkgconfig cmake 
 
-SRC_URI += " \
-    file://aurora.service.in \
-    file://aurora.init \
-"
+SRC_URI += "file://gui_entry.desktop"
 
 do_install_append() {
-    install -d ${D}/${sysconfdir}/init.d
-    install -m 0755 ${WORKDIR}/aurora.init ${D}/${sysconfdir}/init.d/aurora
-
-    install -d ${D}${systemd_unitdir}/system
-    sed -e 's,%sbindir%,${sbindir},g' \
-        < ${WORKDIR}/aurora.service.in \
-        > ${D}${systemd_unitdir}/system/aurora.service
+    mkdir -p ${D}${sysconfdir}/xdg/autostart
+    install -m 0744 ${WORKDIR}/gui_entry.desktop ${D}${sysconfdir}/xdg/autostart/aurora.desktop
 }
-
-RREPLACES_${PN} += "${PN}-systemd"
-RCONFLICTS_${PN} += "${PN}-systemd"
-SYSTEMD_AUTO_ENABLE = "enable"
-SYSTEMD_SERVICE_${PN} = "aurora.service"
-
-INITSCRIPT_NAME = "aurora"
-INITSCRIPT_PARAMS = "start 99 5 . stop 20 0 1 2 3 6 ."
-
-FILES_${PN} += " \
-    ${systemd_unitdir} \
-    ${sysconfdir} \
-"
