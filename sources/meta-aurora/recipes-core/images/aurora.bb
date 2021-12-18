@@ -12,6 +12,8 @@ IMAGE_INSTALL = "\
     sarpe \
     cubegui \
     gtk+3 \
+    libgpiod \
+    libgpiod-tools \
     "
 
 inherit core-image 

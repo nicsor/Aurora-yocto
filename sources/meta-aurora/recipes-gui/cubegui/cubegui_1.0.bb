@@ -1,13 +1,14 @@
 DESCRiPTION = "Cube gui"
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = " "
-SRCREV = "6797b4abebc6a4ffc533593bfdd90a3a668e25b7"
-SRC_URI = "git://git@github.com:/nicsor/Aurora-CubeApp.git;protocol=ssh;branch=main"
+SRCREV = "917315b982c6c0fd2765ad1b7efa7941ac13de98"
+SRC_URI = "git://git@github.com:/nicsor/Aurora-CubeApp.git;protocol=ssh;branch=development"
 
 DEPENDS += "boost"
 DEPENDS += "gtk+3"
 DEPENDS += "protobuf protobuf-native"
 DEPENDS += "libgcrypt"
+DEPENDS += "libgpiod"
 
 #OpenGL app dependencies
 DEPENDS += "glfw freeglut"
