@@ -1,7 +1,7 @@
 DESCRiPTION = "Cube gui"
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = " "
-SRCREV = "5a2719986079d57ee0e147df208d8d9c0a4acf03"
+SRCREV = "d59f2effa537792897811db4938c55746f821bad"
 SRC_URI = "git://git@github.com:/nicsor/Aurora-CubeApp.git;protocol=ssh;branch=main"
 
 DEPENDS += "boost"
