@@ -18,10 +18,10 @@ index 0acf4cf..67656d0 100644
  auto eth0
 -iface eth0 inet dhcp
 +iface eth0 inet static
-+	address 192.168.10.2
++	address 192.168.0.199
 +	netmask 255.255.255.0
-+	network 192.168.10.0
-+	gateway 192.168.10.1
++	network 192.168.0.0
++	gateway 192.168.0.1
  iface eth1 inet dhcp
  
  # Ethernet/RNDIS gadget (g_ether)
