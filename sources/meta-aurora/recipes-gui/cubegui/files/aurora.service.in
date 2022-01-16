@@ -3,7 +3,7 @@ Description=Aurora GUI App
 After=systemd-user-sessions.service
 
 [Service]
-ExecStart=%sbindir%/aurora
+ExecStart=%sbindir%/cubeManager
 StandardOutput=syslog
 
 [Install]

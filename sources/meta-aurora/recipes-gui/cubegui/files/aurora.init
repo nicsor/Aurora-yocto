@@ -11,7 +11,7 @@
 set -e
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/bin/git_apps_Gui
+DAEMON=/usr/bin/cubeManager
 
 case "$1" in
   start)
