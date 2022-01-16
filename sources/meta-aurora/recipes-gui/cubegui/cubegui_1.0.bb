@@ -1,7 +1,7 @@
 DESCRiPTION = "Cube gui"
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = " "
-SRCREV = "d8f68d573b0bbc699e07bbabef684df7e054a564"
+SRCREV = "0e93ec6cc54166270b7cba01b35e51b97f8bb480"
 SRC_URI = "git://git@github.com:/nicsor/BreadCrumbs.git;protocol=ssh;branch=master"
 
 DEPENDS += "boost"
