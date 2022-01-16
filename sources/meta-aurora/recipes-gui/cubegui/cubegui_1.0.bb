@@ -1,8 +1,8 @@
 DESCRiPTION = "Cube gui"
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = " "
-SRCREV = "5a2719986079d57ee0e147df208d8d9c0a4acf03"
-SRC_URI = "git://git@github.com:/nicsor/Aurora-CubeApp.git;protocol=ssh;branch=main"
+SRCREV = "d8f68d573b0bbc699e07bbabef684df7e054a564"
+SRC_URI = "git://git@github.com:/nicsor/BreadCrumbs.git;protocol=ssh;branch=master"
 
 DEPENDS += "boost"
 DEPENDS += "gtk+3"
