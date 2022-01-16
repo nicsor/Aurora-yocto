@@ -12,31 +12,40 @@ set -e
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/bin/cubeManager
+DAEMON_OPTS=" -f /usr/bin/config.json"
+NAME=cubeManager
+PIDFILE=/var/run/aurora.pid
 
 case "$1" in
   start)
 	echo "Starting Aurora GUI App" "aurora"
         set +e
-        start-stop-daemon --start -b --exec $DAEMON \
-                --name aurora  > /tmp/bootservice.log 2>&1
+        start-stop-daemon --start -b \
+                --name $NAME \
+                --make-pidfile --pidfile $PIDFILE \
+                --exec "$DAEMON" \
+                -- $DAEMON_OPTS > /tmp/bootservice.log 2>&1
 	echo "Started Aurora GUI App" "aurora"
         set -e
   ;;
   stop)
         echo "Stopping Aurora GUI App" "aurora"
         set +e
-        start-stop-daemon --stop --name aurora
+        start-stop-daemon --stop --name $NAME --pidfile $PIDFILE
         set -e
   ;;
   reload)
         echo "Scheduling reload of Aurora GUI App configuration" "aurora"
         set +e
-        start-stop-daemon --stop --signal USR1 --quiet --pidfile \
-                /var/run/aurora.pid --name aurora
+        start-stop-daemon --stop \
+                 --signal USR1 \
+                 --quiet \
+                 --pidfile $PIDFILE \
+                 --name $NAME
         set -e
   ;;
   status)
-        status_of_proc -p "$PIDFILE" "$DAEMON" aurora && exit 0 || exit $?
+        status_of_proc -p "$PIDFILE" "$DAEMON" $NAME && exit 0 || exit $?
   ;;
   restart|force-reload)
         $0 stop
